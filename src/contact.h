@@ -7,7 +7,7 @@
  * @brief 粒子-粒子接触的历史状态
  */
 struct Contact {
-    int i, j;                  ///< 接触的两个粒子索引，约定 i < j
+    id_t i, j;                 ///< 接触的两个粒子 ID，约定 i < j
     Vec2 t_disp = {0, 0};      ///< 累积切向位移（接触局部坐标）
     bool active = false;       ///< 当前是否处于接触
 };

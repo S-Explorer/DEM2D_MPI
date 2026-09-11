@@ -42,3 +42,15 @@ void Grid::build(const std::vector<Particle>& particles) {
         head[cell] = i;
     }
 }
+
+/**
+ * @brief 判断当前pos是不是在目前的grid所在的region
+ * @param pos 传入的位置
+ * @return bool 是否在当前区域
+ */
+bool Grid::owns(const Vec2& pos) const {
+    bool x_own{false}, y_own{false};
+    if (box_min.x <= pos.x && box_max.x > pos.x) x_own = true;
+    if (box_min.y <= pos.y && box_max.y > pos.y) y_own = true;
+    return x_own && y_own;
+}

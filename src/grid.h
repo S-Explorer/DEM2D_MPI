@@ -13,6 +13,10 @@ public:
     Grid(Vec2 box_min, Vec2 box_max, real_t cell_size);
 
     void build(const std::vector<Particle>& particles);
+    bool owns(const Vec2& pos) const;
+    Vec2 getmin() const {return box_min;}
+    Vec2 getmax() const {return box_max;}
+    auto getsize() const {return cell_size;}
 
     /**
      * @brief 遍历粒子 i 的 3x3 邻域，对每个邻居索引 j 调用回调
